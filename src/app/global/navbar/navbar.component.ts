@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  activeTab: number;
+  constructor() {
+    this.activeTab = 1;
+  }
 
   ngOnInit() {
   }

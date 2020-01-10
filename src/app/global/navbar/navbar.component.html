@@ -10,16 +10,16 @@
     </nav> -->
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link active h-100" href="#">Home</a>
+        <a class="nav-link h-100" [class.active]="activeTab==1" (click)="activeTab=1" href="#" routerLink="/home">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link h-100" href="#">Buy</a>
+        <a class="nav-link h-100" [class.active]="activeTab==2" (click)="activeTab=2" href="#" routerLink="/buy">Buy</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link h-100" href="#">Sell</a>
+        <a class="nav-link h-100" [class.active]="activeTab==3" (click)="activeTab=3" href="#" routerLink="/sell">Sell</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link h-100" href="#">Profile</a>
+        <a class="nav-link h-100" [class.active]="activeTab==4" (click)="activeTab=4" href="#" routerLink="/profile">Profile</a>
       </li>
     </ul>
   </div>
