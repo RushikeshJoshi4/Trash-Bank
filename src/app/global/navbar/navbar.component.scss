@@ -1,0 +1,21 @@
+#nav-container {
+    height: 80px;
+    width: 100%;
+    background: #EEEEEE;
+    display: flex;
+    flex-direction: row;
+}
+
+#nav-logo {
+    padding: 10px;
+}
+
+#nav-menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+
+    ul li a {
+        padding-top: 24px;
+    }
+}
