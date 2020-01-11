@@ -10,6 +10,9 @@ import { ITEMS } from 'src/app/models/mockdata/mock_items';
 export class BuyPageComponent implements OnInit {
 
   items: Item[];
+  ItemType = ItemType;
+  typeFilter: ItemType;
+  t: any;
   constructor() {
     this.items = [];
   }
@@ -20,14 +23,18 @@ export class BuyPageComponent implements OnInit {
 
   getCategoryIcon(type: ItemType) {
     const obj = {
-      'fa-trash-alt': type === ItemType.TRASH,
+      // 'fa-trash-alt': type === ItemType.TRASH,
       'fa-glass-whiskey': type === ItemType.GLASS,
       'fa-shopping-bag': type === ItemType.PLASTIC,
       'fa-shield-alt': type === ItemType.METAL,
       'fa-copy': type === ItemType.PAPER,
     };
-    console.log(obj);
+    // console.log(obj);
     return obj;
+  }
+
+  test() {
+    console.log(this.typeFilter);
   }
 
 }

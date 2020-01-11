@@ -1,9 +1,9 @@
 export enum ItemType {
-    TRASH = 'trash',
-    GLASS = 'glass',
-    PLASTIC = 'plastic',
-    METAL = 'metal',
-    PAPER = 'paper_based',
+    // TRASH = 'trash',
+    GLASS = 'Glass',
+    PLASTIC = 'Plastic',
+    METAL = 'Metal',
+    PAPER = 'Paper',
 }
 
 export class Item {

@@ -5,6 +5,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { BuyPageComponent } from './buy-page/buy-page.component';
 import { SellPageComponent } from './sell-page/sell-page.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,8 @@ import { RouterModule } from '@angular/router';
   declarations: [LandingPageComponent, ProfilePageComponent, BuyPageComponent, SellPageComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     LandingPageComponent,
