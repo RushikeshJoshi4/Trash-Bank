@@ -1,1 +1,35 @@
-<p>sell-page works!</p>
+<div id="sell-page-container">
+<form name="sell-form">
+  <div class="form-group">
+    <label for="sell-title">Title</label>
+    <input type="text" class="form-control" id="sell-title">
+    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+  </div>
+
+  <div class="form-group">
+    <div class="custom-file">
+      <!-- <label for="sell-title">Title</label> -->
+      <input type="file" class="custom-file-input" id="sell-pic" accept=".jpg, .jpeg, .png">
+      <label class="custom-file-label" for="sell-pic">Upload photo of product to predict fields below!</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <select class="custom-select" id="sell-category" name="sell-category" [(ngModel)]="selectedItemType">
+      <option selected [ngValue]="undefined">Filter by category</option>
+      <option *ngFor="let cat of ItemType | keyvalue" [ngValue]="cat.value">{{cat.value}}</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="sell-weight">Weight</label>
+    <input type="text" class="form-control" id="sell-weight">
+  </div>
+  
+  <div class="form-group">
+    <label for="sell-price">Price</label>
+    <input type="text" class="form-control" id="sell-price">
+  </div>
+  <button type="submit" class="btn btn-primary">Post Listing</button>
+</form>
+</div>

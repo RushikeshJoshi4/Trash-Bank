@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemType } from 'src/app/models/item';
 
 @Component({
   selector: 'app-sell-page',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellPageComponent implements OnInit {
 
+  selectedItemType: ItemType;
+  ItemType = ItemType;
   constructor() { }
 
   ngOnInit() {

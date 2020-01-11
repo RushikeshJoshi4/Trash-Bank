@@ -1,6 +1,6 @@
 <div id="buy-container">
   <div id="filter-bar">
-    <select id="item-category-select" class="custom-select" [(ngModel)]="typeFilter">
+    <select id="item-category-select" class="custom-select" [(ngModel)]="typeFilter" name="item-category-select">
       <option selected [ngValue]="undefined">Filter by category</option>
       <option *ngFor="let cat of ItemType | keyvalue" [ngValue]="cat.value">{{cat.value}}</option>
     </select>
