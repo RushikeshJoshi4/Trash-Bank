@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GlobalModule } from './global/global.module';
 import { PagesModule } from './pages/pages.module';
+import { ModelsModule } from './models/models.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PagesModule } from './pages/pages.module';
     BrowserModule,
     AppRoutingModule,
     GlobalModule,
-    PagesModule
+    PagesModule,
+    ModelsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
