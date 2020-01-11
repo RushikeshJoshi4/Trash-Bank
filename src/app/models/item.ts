@@ -8,6 +8,7 @@ export enum ItemType {
 
 export class Item {
     ID: number;
+    title: string;
     ownerID: number;
     forSale: boolean;
     weight: number;
