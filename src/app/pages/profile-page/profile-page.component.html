@@ -1,62 +1,83 @@
 <div id="profile-container">
-  <div id="profile-title" class="display-4">
+  <!-- <div id="profile-title" class="display-4">
     Profile
-  </div>
+  </div> -->
   <div id="profile-content">
-  <div id="profile-details">
-    <div id="dp"></div>
-    <div id="details-text">
-      <div>Name: Burhanuddin Lakdawala</div>
-      <div>Balance: 1000</div>
+    <div id="profile-details">
+      <div id="dp"></div>
+      <div id="details-text">
+        <div>Name: Burhanuddin Lakdawala</div>
+        <div>Balance: 1000</div>
+      </div>
+    </div>
+    <div id="profile-trans">
+      <!-- <div class="card"
+        *ngFor="let t of transactions; index as i" [ngClass]="generateClassObj(t)" >
+        <div class="card-body">
+          <h5 class="card-title">{{i+1}}. {{t.item.title}}</h5>
+          <p class="card-text">
+            {{t.isSeller?'Sold to':'Bought from'}} {{t.otherParty}} on {{t.datetime}}
+          </p>
+        </div>
+      </div> -->
+
+      <div style="padding-bottom: 10px;">
+        <div id="transac-title" class="display-4">
+          Transactions
+        </div>
+      </div>
+
+      <div class="accordion" id="profile-trans-accordion" *ngIf="transactions">
+        <div class="card" [ngClass]="generateClassObj(transactions[0])">
+          <div class="card-header" id="{{'t-heading-'+transactions[0].ID}}">
+            <div class="clickable" data-toggle="collapse" attr.data-target="{{'#t-collapse-'+transactions[0].ID}}"
+              aria-expanded="true" attr.aria-controls="{{'t-collapse-'+transactions[0].ID}}">
+              <h5 class="card-title">1. {{transactions[0].item.title}}</h5>
+              <p class="card-text">
+                {{transactions[0].isSeller?'Sold to':'Bought from'}} {{transactions[0].otherParty}} on
+                {{transactions[0].datetime}}
+              </p>
+            </div>
+          </div>
+
+          <div id="{{'t-collapse-'+transactions[0].ID}}" class="collapse"
+            attr.aria-labelledby="{{'t-heading-'+transactions[0].ID}}" data-parent="#profile-trans-accordion">
+            <div class="card-body">
+              <div>Transaction ID: {{transactions[0].ID}}</div>
+              <div>Item ID: {{transactions[0].item.ID}}</div>
+              <div>Item Weight: {{transactions[0].item.weight}}</div>
+              <div>Item Price: {{transactions[0].item.price}}</div>
+              <div>Item Type: {{transactions[0].item.type}}</div>
+              <div>Item Path: {{transactions[0].item.path}}</div>
+            </div>
+          </div>
+        </div>
+
+        <ng-container *ngFor="let t of transactions; index as i">
+          <div class="card" *ngIf="i>0" [ngClass]="generateClassObj(t)">
+            <div class="card-header" id="{{'t-heading-'+t.ID}}">
+              <div class="clickable collapsed" data-toggle="collapse" attr.data-target="{{'#t-collapse-'+t.ID}}"
+                aria-expanded="false" attr.aria-controls="{{'t-collapse-'+t.ID}}">
+                <h5 class="card-title">{{i+1}}. {{t.item.title}}</h5>
+                <p class="card-text">
+                  {{t.isSeller?'Sold to':'Bought from'}} {{t.otherParty}} on {{t.datetime}}
+                </p>
+              </div>
+            </div>
+            <div id="{{'t-collapse-'+t.ID}}" class="collapse" attr.aria-labelledby="{{'t-heading-'+t.ID}}"
+              data-parent="#profile-trans-accordion">
+              <div class="card-body">
+                <div>Transaction ID: {{t.ID}}</div>
+                <div>Item ID: {{t.item.ID}}</div>
+                <div>Item Weight: {{t.item.weight}}</div>
+                <div>Item Price: {{t.item.price}}</div>
+                <div>Item Type: {{t.item.type}}</div>
+                <div>Item Path: {{t.item.path}}</div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
     </div>
   </div>
-  <div id="profile-trans">
-    
-    <!-- <div class="accordion" id="profile-trans-accordion">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h2 class="mb-0">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Collapsible Group Item #1
-            </button>
-          </h2>
-        </div>
-    
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#profile-trans-accordion">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Collapsible Group Item #2
-            </button>
-          </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#profile-trans-accordion">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h2 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Collapsible Group Item #3
-            </button>
-          </h2>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#profile-trans-accordion">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-    </div> -->
-  </div>
-</div>
 </div>
