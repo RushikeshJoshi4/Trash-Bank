@@ -4,13 +4,15 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { BuyPageComponent } from './buy-page/buy-page.component';
 import { SellPageComponent } from './sell-page/sell-page.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [LandingPageComponent, ProfilePageComponent, BuyPageComponent, SellPageComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     LandingPageComponent,
