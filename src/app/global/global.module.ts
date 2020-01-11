@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { LoadingComponent } from './loading/loading.component';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingComponent
   ]
 })
 export class GlobalModule { }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { UtilityService } from 'src/app/services/utility.service';
+import { LoginService } from 'src/app/services/login.service';
+import { User } from 'src/app/models/user';
+declare var $: any;
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +13,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   activeTab: number;
-  constructor(private router: Router) {
+  constructor(private router: Router, private utility: UtilityService, private login: LoginService) {
     this.router.events.subscribe(re => {
       if (re instanceof NavigationEnd) {
         const currentPath: string = re.url;
@@ -28,6 +32,17 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.utility.displayLoading();
+    // setTimeout(() => {
+    //   this.utility.hideLoading();
+    // }, 5000);
+    this.utility.displayLoading('Loading user data...');
+
+    this.login.getUserDetails().subscribe(resp => {
+      this.login.user = new User(resp);
+      this.utility.hideLoading();
+      console.log(this.login.user);
+    });
   }
 
 }

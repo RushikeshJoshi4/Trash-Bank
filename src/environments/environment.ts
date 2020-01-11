@@ -8,6 +8,7 @@ export const environment = {
   production: false,
 
   LOGIN_URL: SERVER_IP + '',
+  TRANSAC_URL: SERVER_IP + 'transaction',
 };
 
 /*

@@ -6,8 +6,8 @@
     <div id="profile-details">
       <div id="dp"></div>
       <div id="details-text">
-        <div>Name: Burhanuddin Lakdawala</div>
-        <div>Balance: 1000</div>
+        <div>Name: {{currentUser.name}}</div>
+        <div>Balance: {{currentUser.balance}}</div>
       </div>
     </div>
     <div id="profile-trans">
@@ -27,7 +27,108 @@
         </div>
       </div>
 
-      <div class="accordion" id="profile-trans-accordion" *ngIf="transactions">
+      <nav>
+        <div class="nav nav-tabs" id="transac-separation" role="tablist">
+          <a class="nav-item nav-link active" id="nav-forsale-tab" data-toggle="tab" href="#nav-forsale" role="tab"
+            aria-controls="nav-forsale" aria-selected="true">For Sale</a>
+          <a class="nav-item nav-link" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab"
+            aria-controls="nav-pending" aria-selected="false">Awaiting Payment</a>
+          <a class="nav-item nav-link" id="nav-complete-tab" data-toggle="tab" href="#nav-complete" role="tab"
+            aria-controls="nav-complete" aria-selected="false">Completed</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="transac-content">
+        <div class="tab-pane fade show active" id="nav-forsale" role="tabpanel" aria-labelledby="nav-forsale-tab">
+          <div class="accordion" id="profile-trans-accordion" *ngIf="forSaleData.length>0">
+            <ng-container *ngFor="let t of forSaleData; index as i">
+              <div class="card">
+                <!-- [ngClass]="generateClassObj(t)"> -->
+                <div class="card-header" id="{{'t-heading-'+t.item_id}}">
+                  <div class="clickable collapsed" data-toggle="collapse" attr.data-target="{{'#t-collapse-'+t.item_id}}"
+                    aria-expanded="false" attr.aria-controls="{{'t-collapse-'+t.item_id}}">
+                    <h5 class="card-title">{{i+1}}. {{t.item_title}}</h5>
+                    <p class="card-text">
+                      Posted on {{t.date | date: 'dd/MM/yyyy'}}
+                    </p>
+                  </div>
+                </div>
+                <div id="{{'t-collapse-'+t.item_id}}" class="collapse" attr.aria-labelledby="{{'t-heading-'+t.item_id}}"
+                  data-parent="#profile-trans-accordion">
+                  <div class="card-body">
+                    <div>Item ID: {{t.item_id}}</div>
+                    <div>Item Weight: {{t.item_weight}}</div>
+                    <div>Item Price: {{t.item_price}}</div>
+                    <div>Item Type: {{t.item_type}}</div>
+                    <div>Item Path: {{t.item_path}}</div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+          <div class="accordion" id="profile-trans-accordion" *ngIf="transactions.length>0">
+            <ng-container *ngFor="let t of transactions; index as i">
+              <div class="card" *ngIf="t.status=='Awaiting Delivery'">
+                <!-- [ngClass]="generateClassObj(t)"> -->
+                <div class="card-header" id="{{'t-heading-'+t.ID}}">
+                  <div class="clickable collapsed" data-toggle="collapse" attr.data-target="{{'#t-collapse-'+t.ID}}"
+                    aria-expanded="false" attr.aria-controls="{{'t-collapse-'+t.ID}}">
+                    <h5 class="card-title">{{i+1}}. {{t.item.title}}</h5>
+                    <p class="card-text">
+                      {{t.isSeller?'Sold to':'Bought from'}} {{t.otherParty}} on {{t.datetime | date: 'dd/MM/yyyy'}}
+                    </p>
+                  </div>
+                </div>
+                <div id="{{'t-collapse-'+t.ID}}" class="collapse" attr.aria-labelledby="{{'t-heading-'+t.ID}}"
+                  data-parent="#profile-trans-accordion">
+                  <div class="card-body">
+                    <div>Transaction ID: {{t.ID}}</div>
+                    <div>Item ID: {{t.item.ID}}</div>
+                    <div>Item Weight: {{t.item.weight}}</div>
+                    <div>Item Price: {{t.item.price}}</div>
+                    <div>Item Type: {{t.item.type}}</div>
+                    <div>Item Path: {{t.item.path}}</div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-complete" role="tabpanel" aria-labelledby="nav-complete-tab">
+          <div class="accordion" id="profile-trans-accordion" *ngIf="transactions.length>0">
+            <ng-container *ngFor="let t of transactions; index as i">
+              <div class="card" *ngIf="t.status=='Complete'">
+                <!-- [ngClass]="generateClassObj(t)"> -->
+                <div class="card-header" id="{{'t-heading-'+t.ID}}">
+                  <div class="clickable collapsed" data-toggle="collapse" attr.data-target="{{'#t-collapse-'+t.ID}}"
+                    aria-expanded="false" attr.aria-controls="{{'t-collapse-'+t.ID}}">
+                    <h5 class="card-title">{{i+1}}. {{t.item.title}}</h5>
+                    <p class="card-text">
+                      {{t.isSeller?'Sold to':'Bought from'}} {{t.otherParty}} on {{t.datetime | date: 'dd/MM/yyyy'}}
+                    </p>
+                  </div>
+                </div>
+                <div id="{{'t-collapse-'+t.ID}}" class="collapse" attr.aria-labelledby="{{'t-heading-'+t.ID}}"
+                  data-parent="#profile-trans-accordion">
+                  <div class="card-body">
+                    <div>Transaction ID: {{t.ID}}</div>
+                    <div>Item ID: {{t.item.ID}}</div>
+                    <div>Item Weight: {{t.item.weight}}</div>
+                    <div>Item Price: {{t.item.price}}</div>
+                    <div>Item Type: {{t.item.type}}</div>
+                    <div>Item Path: {{t.item.path}}</div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="accordion" id="profile-trans-accordion" *ngIf="transactions.length>0">
         <div class="card" [ngClass]="generateClassObj(transactions[0])">
           <div class="card-header" id="{{'t-heading-'+transactions[0].ID}}">
             <div class="clickable" data-toggle="collapse" attr.data-target="{{'#t-collapse-'+transactions[0].ID}}"
@@ -35,7 +136,7 @@
               <h5 class="card-title">1. {{transactions[0].item.title}}</h5>
               <p class="card-text">
                 {{transactions[0].isSeller?'Sold to':'Bought from'}} {{transactions[0].otherParty}} on
-                {{transactions[0].datetime}}
+                {{transactions[0].datetime | date: 'dd/MM/yyyy'}}
               </p>
             </div>
           </div>
@@ -60,7 +161,7 @@
                 aria-expanded="false" attr.aria-controls="{{'t-collapse-'+t.ID}}">
                 <h5 class="card-title">{{i+1}}. {{t.item.title}}</h5>
                 <p class="card-text">
-                  {{t.isSeller?'Sold to':'Bought from'}} {{t.otherParty}} on {{t.datetime}}
+                  {{t.isSeller?'Sold to':'Bought from'}} {{t.otherParty}} on {{t.datetime | date: 'dd/MM/yyyy'}}
                 </p>
               </div>
             </div>
@@ -77,7 +178,7 @@
             </div>
           </div>
         </ng-container>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
