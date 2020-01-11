@@ -32,10 +32,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.utility.displayLoading();
-    // setTimeout(() => {
-    //   this.utility.hideLoading();
-    // }, 5000);
     this.utility.displayLoading('Loading user data...');
 
     this.login.getUserDetails().subscribe(resp => {
