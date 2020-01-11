@@ -29,4 +29,12 @@ export class Item {
         this.type = i.item_type;
         this.path = i.item_path;
     }
+
+    static parseTransacArr(is): Item[] {
+        const items: Item[] = [];
+        for (const i of is) {
+            items.push(new Item(i));
+        }
+        return items;
+    }
 }

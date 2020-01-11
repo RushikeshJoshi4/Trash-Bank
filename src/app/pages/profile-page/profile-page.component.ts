@@ -21,10 +21,15 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.utility.displayLoading('Loading transactions...');
+    // while (!this.login.user) { }
     this.login.getUserDetails().subscribe(uresp => {
-      this.login.user = new User(uresp);
-      this.currentUser = this.login.user;
+      if (uresp instanceof User) {
+        this.currentUser = uresp;
+      } else {
+        this.login.user = new User(uresp);
+        this.currentUser = this.login.user;
+      }
+
       this.transac.getTransactionsOfUser(this.currentUser).subscribe(tresp => {
         console.log(tresp);
         this.transactions = Transaction.parseTransacArr(tresp.data);
@@ -32,6 +37,19 @@ export class ProfilePageComponent implements OnInit {
         this.utility.hideLoading(1000);
       });
     });
+
+
+    // this.utility.displayLoading('Loading transactions...');
+    // this.login.getUserDetails().subscribe(uresp => {
+    //   this.login.user = new User(uresp);
+    //   this.currentUser = this.login.user;
+    //   this.transac.getTransactionsOfUser(this.currentUser).subscribe(tresp => {
+    //     console.log(tresp);
+    //     this.transactions = Transaction.parseTransacArr(tresp.data);
+    //     this.forSaleData = tresp.items_for_sale;
+    //     this.utility.hideLoading(1000);
+    //   });
+    // });
 
     // this.transactions = TRANSACS;
   }

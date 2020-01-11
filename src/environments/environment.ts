@@ -9,6 +9,7 @@ export const environment = {
 
   LOGIN_URL: SERVER_IP + '',
   TRANSAC_URL: SERVER_IP + 'transaction',
+  ITEMS_URL: SERVER_IP + 'items',
 };
 
 /*
