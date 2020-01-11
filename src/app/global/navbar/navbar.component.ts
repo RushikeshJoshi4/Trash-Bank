@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   activeTab: number;
-  constructor() {
-    this.activeTab = 1;
+  constructor(private router: Router) {
+    this.router.events.subscribe(re => {
+      if (re instanceof NavigationEnd) {
+        const currentPath: string = re.url;
+        if (currentPath === '/home') {
+          this.activeTab = 1;
+        } else if (currentPath === '/buy') {
+          this.activeTab = 2;
+        } else if (currentPath === '/sell') {
+          this.activeTab = 3;
+        } else if (currentPath === '/profile') {
+          this.activeTab = 4;
+        }
+        // console.log(re);
+      }
+    });
   }
 
   ngOnInit() {
