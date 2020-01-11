@@ -1,4 +1,40 @@
+#profile-container {
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
 
-#image1 {
-    background: url('../../../assets/slides/slide1.jpg');
+#profile-title {
+    border-bottom: 1px solid black;
+    width: fit-content;
+}
+
+#profile-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+#profile-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#dp {
+    background-image: url("../../../assets/dp.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-grow: 2;
+    background-size: contain;
+    background-position: center;
+}
+
+#details-text {
+    flex-grow: 1;
+}
+
+#profile-trans {
+    flex-grow: 8;
 }
