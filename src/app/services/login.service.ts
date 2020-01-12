@@ -16,6 +16,9 @@ export class LoginService {
   }
 
   getUserDetails(uname?: string): Observable<any> {
+    if (localStorage.getItem('uname')) {
+      uname = localStorage.getItem('uname');
+    }
     if (!this.user) {
       uname = uname ? uname : 'Erica';
       const data = {
