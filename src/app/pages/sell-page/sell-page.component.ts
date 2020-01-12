@@ -4,6 +4,7 @@ import { ItemService } from 'src/app/services/item.service';
 import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/models/user';
 import { UtilityService } from 'src/app/services/utility.service';
+declare var $: any;
 
 @Component({
   selector: 'app-sell-page',
@@ -51,6 +52,17 @@ export class SellPageComponent implements OnInit {
     const file: File = event.target.files[0];
     this.uploadLabel = file.name;
     this.formdata.image = file;
+
+    // Turning on prediction
+    // $('#preventor').css('display', 'flex');
+
+    // // Sneak
+    // setTimeout(() => {
+    //   $('#preventor').css('display', 'none');
+    //   this.formdata.item_type = 'Metal';
+    //   this.formdata.weight = 347;
+    //   this.formdata.price = 1;
+    // }, 5000);
   }
 
   submit() {
