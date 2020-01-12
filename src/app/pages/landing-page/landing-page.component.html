@@ -1,6 +1,5 @@
 <div id="page-container">
-  <div id="landing-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-    <div class="odometer">4000000</div>
+  <div id="landing-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
     <ol class="carousel-indicators">
       <li data-target="#landing-carousel" data-slide-to="0" class="active"></li>
       <li data-target="#landing-carousel" data-slide-to="1"></li>
@@ -10,25 +9,31 @@
       <div class="carousel-item active h-100">
         <div id="image1" class="slide-div"></div>
         <!-- <img src="../../../assets/slides/slide1.jpg" height="200" class="d-block w-100" alt="..."> -->
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+
+        <div class="carousel-caption d-none d-md-block" style="top: 35%; font-size: 2rem;">
+          <b>START RECYCLING AND SAVE EARTH</b>
+        </div>
+        <div class="carousel-caption d-none d-md-block odometer">0</div>
+        <div class="carousel-caption d-none d-md-block" style="top: 68%;">
+          <p>KGS OF WASTE RECYCLED</p>
         </div>
       </div>
       <div class="carousel-item h-100">
         <div id="image2" class="slide-div"></div>
         <!-- <img src="../../../assets/slides/slide2.jpg" class="d-block w-100" alt="..."> -->
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="carousel-caption d-none d-md-block" style="top: 22%; left: 17%; text-align: left;">
+          <b style="font-size: 2.5rem;">LOOKING TO JOIN AS A COMPANY?</b><br>
+          <button type="button" class="btn btn-success" routerLink="/buy"
+            style="position: absolute;left: 52%;top: 23%;font-size: 1.2rem;">Buy Here</button>
         </div>
       </div>
       <div class="carousel-item h-100">
         <div id="image3" class="slide-div"></div>
         <!-- <img src="../../../assets/slides/slide3.jpg" class="d-block w-100" alt="..."> -->
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        <div class="carousel-caption d-none d-md-block" style="top: 22%; left: 17%; text-align: left;">
+          <b style="font-size: 3rem;color: black;">JOIN THE REVOLUTION?</b><br>
+          <button type="button" class="btn btn-success" routerLink="/sell"
+            style="position: absolute;left: 42%;top: 26%;font-size: 1.2rem;">Sell Now</button>
         </div>
       </div>
     </div>
@@ -41,10 +46,11 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div id="call-to-action" class="display-4">
-    Start your journey! 
+  <div id="call-to-action" class="display-4" style="font-size: 2rem;">
+    “The greatest threat to our planet is the belief that someone else will save it.”
+    <!-- Start your journey! 
     <button type="button" class="btn btn-primary btn-lg" routerLink="/buy">Buy</button>
     or
-    <button type="button" class="btn btn-success btn-lg" routerLink="/sell">Sell</button>
+    <button type="button" class="btn btn-success btn-lg" routerLink="/sell">Sell</button> -->
   </div>
 </div>

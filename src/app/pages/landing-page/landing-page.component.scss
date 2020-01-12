@@ -1,8 +1,7 @@
 #page-container {
-    height: calc(100% - 80px);
+    height: calc(100% - 75px);
     display: flex;
     flex-direction: column;
-    padding: 10px;
 }
 
 #landing-carousel {
@@ -15,20 +14,26 @@
 
     .carousel-inner {
         height: 100%;
-        width: 60%;
+        width: 100%;
     }
 }
 
 .odometer {
     position: absolute;
     z-index: 5;
-    top: 50%;
-    left: 47%;
-    font-size: 2rem;
+    top: 48%;
+    left: 15%;
+    font-size: 6rem;
     background: none;
 
-    .odometer-digit {
-        color: white;
+    ::ng-deep .odometer-inside {
+        font-weight: 500;
+        color: #3cb6c6;
+    }
+
+    ::ng-deep .odometer-digit {
+        font-weight: 500;
+        color: #3cb6c6;
     }
 }
 
