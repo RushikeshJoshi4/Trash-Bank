@@ -3,6 +3,7 @@ import { ItemType } from 'src/app/models/item';
 import { ItemService } from 'src/app/services/item.service';
 import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/models/user';
+import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
   selector: 'app-sell-page',
@@ -17,7 +18,7 @@ export class SellPageComponent implements OnInit {
   currentUser: User;
   ItemType = ItemType;
 
-  constructor(private itemService: ItemService, private loginService: LoginService) {
+  constructor(private itemService: ItemService, private loginService: LoginService, private utility: UtilityService) {
     this.uploadLabel = 'Upload photo of product to predict fields below!';
     this.formdata = {
       item_type: undefined,
@@ -53,9 +54,20 @@ export class SellPageComponent implements OnInit {
   }
 
   submit() {
+    this.utility.displayLoading('Adding item...');
     console.log('sell form', this.formdata);
     this.itemService.addItem(this.formdata).subscribe(addresp => {
       console.log('add', addresp);
+      this.formdata = {
+        user_id: this.currentUser.ID,
+        address: this.currentUser.address,
+        title: '',
+        weight: 0,
+        price: 0,
+        item_type: undefined,
+        image: undefined,
+      };
+      this.utility.hideLoading();
     });
   }
 

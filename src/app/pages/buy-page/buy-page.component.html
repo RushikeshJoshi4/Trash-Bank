@@ -7,8 +7,25 @@
   </div>
   <div id="listings" *ngIf="items">
     <ng-container *ngFor="let item of items; index as i">
-    <div id="card-container" *ngIf="!typeFilter || typeFilter===item.type">
-      <div class="card">
+      <div id="card-container" *ngIf="!typeFilter || typeFilter===item.type" style="width: 20%;">
+        <div class="card">
+          <img src="../../../assets/product.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{item.title}}
+              <i class="fas" [ngClass]="getCategoryIcon(item.type)"></i>
+            </h5>
+            <p class="card-text">
+              <b>Weight:</b> {{item.weight}}kg
+              <br>
+              <b>Price:</b> ${{item.price}}
+            </p>
+            <!-- <p class="card-text">Price: </p> -->
+            <p class="card-text"><small class="text-muted">Sold by {{item.ownerName}}</small></p>
+          </div>
+          <a href="#" class="btn btn-primary">Buy now!</a>
+        </div>
+        <!-- <div class="card">
         <div class="row no-gutters">
           <div class="col-md-2 listing-image">
             <img src="../../../assets/product.jpg" height="100%" class="card-img" alt="...">
@@ -21,7 +38,6 @@
                 <br>
                 Price: {{item.price}}
               </p>
-              <!-- <p class="card-text">Price: </p> -->
               <p class="card-text"><small class="text-muted">Sold by {{item.ownerName}}</small></p>
             </div>
           </div>
@@ -30,8 +46,8 @@
             <a href="#" class="btn btn-primary">Buy now!</a>
           </div>
         </div>
+      </div> -->
       </div>
-    </div>
-  </ng-container>
+    </ng-container>
   </div>
 </div>

@@ -21,7 +21,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     setInterval(() => {
       this.ego++;
       $('.odometer')[0].innerText = this.ego;
-    }, 7000);
+    }, 5000);
   }
 
 }

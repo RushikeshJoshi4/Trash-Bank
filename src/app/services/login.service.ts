@@ -17,7 +17,7 @@ export class LoginService {
 
   getUserDetails(uname?: string): Observable<any> {
     if (!this.user) {
-      uname = uname ? uname : 'Ankitesh Seller';
+      uname = uname ? uname : 'Erica';
       const data = {
         uname,
         address: -1
