@@ -14,13 +14,17 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    $('.odometer')[0].innerText = this.ego;
+    if ($('.odometer')[0]) {
+      $('.odometer')[0].innerText = this.ego;
+    }
   }
 
   ngAfterViewInit() {
     setInterval(() => {
-      this.ego++;
-      $('.odometer')[0].innerText = this.ego;
+      if ($('.odometer')[0]) {
+        this.ego++;
+        $('.odometer')[0].innerText = this.ego;
+      }
     }, 5000);
   }
 
