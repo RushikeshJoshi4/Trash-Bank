@@ -31,7 +31,6 @@ export class ItemService {
     //     formData.set(key, value);
     //   }
     // }
-    console.log(formData);
     return this.http.post(environment.ADD_URL, formData);
   }
 }

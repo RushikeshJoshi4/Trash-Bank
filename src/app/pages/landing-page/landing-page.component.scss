@@ -19,6 +19,19 @@
     }
 }
 
+.odometer {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 47%;
+    font-size: 2rem;
+    background: none;
+
+    .odometer-digit {
+        color: white;
+    }
+}
+
 #image1 {
     background-image: url('../../../assets/slides/slide1.jpg');
 }

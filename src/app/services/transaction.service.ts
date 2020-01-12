@@ -15,4 +15,14 @@ export class TransactionService {
     const obj = { user_id: user.ID, address: user.address };
     return this.http.post(environment.TRANSAC_URL, obj);
   }
+
+  confirmPurchase(user: User, itemID: number, transacID: number): Observable<any> {
+    const obj = {
+      user_id: user.ID,
+      item_id: itemID,
+      transac_id: transacID,
+      address: user.address
+    };
+    return this.http.post(environment.CONFIRM_URL, obj);
+  }
 }

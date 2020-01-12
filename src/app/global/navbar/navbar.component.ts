@@ -26,7 +26,6 @@ export class NavbarComponent implements OnInit {
         } else if (currentPath === '/profile') {
           this.activeTab = 4;
         }
-        // console.log(re);
       }
     });
   }
@@ -37,7 +36,7 @@ export class NavbarComponent implements OnInit {
     this.login.getUserDetails().subscribe(resp => {
       this.login.user = new User(resp);
       this.utility.hideLoading();
-      console.log(this.login.user);
+      console.log('user', this.login.user);
     });
   }
 

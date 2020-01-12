@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemType } from 'src/app/models/item';
 import { ItemService } from 'src/app/services/item.service';
 import { LoginService } from 'src/app/services/login.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-sell-page',
@@ -13,22 +14,36 @@ export class SellPageComponent implements OnInit {
   // selectedItemType: ItemType;
   uploadLabel: string;
   formdata: any;
+  currentUser: User;
   ItemType = ItemType;
 
   constructor(private itemService: ItemService, private loginService: LoginService) {
     this.uploadLabel = 'Upload photo of product to predict fields below!';
+    this.formdata = {
+      item_type: undefined,
+    };
   }
 
   ngOnInit() {
-    this.formdata = {
-      user_id: this.loginService.user.ID,
-      address: this.loginService.user.address,
-      title: '',
-      weight: 0,
-      price: 0,
-      item_type: undefined,
-      image: undefined,
-    };
+    this.loginService.getUserDetails().subscribe(uresp => {
+      if (uresp instanceof User) {
+        this.currentUser = uresp;
+      } else {
+        this.loginService.user = new User(uresp);
+        this.currentUser = this.loginService.user;
+      }
+
+      this.formdata = {
+        user_id: this.currentUser.ID,
+        address: this.currentUser.address,
+        title: '',
+        weight: 0,
+        price: 0,
+        item_type: undefined,
+        image: undefined,
+      };
+    });
+
   }
 
   pickImage(event) {
@@ -38,9 +53,9 @@ export class SellPageComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.formdata);
+    console.log('sell form', this.formdata);
     this.itemService.addItem(this.formdata).subscribe(addresp => {
-      console.log(addresp);
+      console.log('add', addresp);
     });
   }
 

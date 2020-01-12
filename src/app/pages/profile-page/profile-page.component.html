@@ -75,7 +75,10 @@
                 <div class="card-header" id="{{'t-heading-'+t.ID}}">
                   <div class="clickable collapsed" data-toggle="collapse" attr.data-target="{{'#t-collapse-'+t.ID}}"
                     aria-expanded="false" attr.aria-controls="{{'t-collapse-'+t.ID}}">
-                    <h5 class="card-title">{{t.item.title}}</h5>
+                    <h5 class="card-title" id="pending-title">
+                      {{t.item.title}}
+                      <button type="button" class="btn btn-success" *ngIf="!t.isSeller" (click)="confirmDelivery(t.item.ID, t.ID)">Confirm</button>
+                    </h5>
                     <p class="card-text">
                       {{t.isSeller?'Sold to':'Bought from'}} {{t.otherParty}} on {{t.datetime | date: 'dd/MM/yyyy'}}
                     </p>

@@ -31,7 +31,7 @@ export class ProfilePageComponent implements OnInit {
       }
 
       this.transac.getTransactionsOfUser(this.currentUser).subscribe(tresp => {
-        console.log(tresp);
+        console.log('transactions', tresp);
         this.transactions = Transaction.parseTransacArr(tresp.data);
         this.forSaleData = tresp.items_for_sale;
         this.utility.hideLoading(1000);
@@ -52,6 +52,19 @@ export class ProfilePageComponent implements OnInit {
     // });
 
     // this.transactions = TRANSACS;
+  }
+
+  confirmDelivery(itemID: number, transacID: number) {
+    this.utility.displayLoading();
+    this.transac.confirmPurchase(this.currentUser, itemID, transacID).subscribe(cresp => {
+      console.log('confirm', cresp);
+      this.transac.getTransactionsOfUser(this.currentUser).subscribe(tresp => {
+        console.log('transactions', tresp);
+        this.transactions = Transaction.parseTransacArr(tresp.data);
+        this.forSaleData = tresp.items_for_sale;
+        this.utility.hideLoading(1000);
+      });
+    });
   }
 
   generateClassObj(t: Transaction) {

@@ -32,7 +32,7 @@ export class BuyPageComponent implements OnInit {
       }
 
       this.itemService.getItemsForSale(this.currentUser).subscribe(iresp => {
-        console.log(iresp);
+        console.log('buy', iresp);
         this.items = Item.parseTransacArr(iresp.data);
         // this.forSaleData = tresp.items_for_sale;
         this.utility.hideLoading(1000);
@@ -50,7 +50,6 @@ export class BuyPageComponent implements OnInit {
       'fa-shield-alt': type === ItemType.METAL,
       'fa-copy': type === ItemType.PAPER,
     };
-    // console.log(obj);
     return obj;
   }
 

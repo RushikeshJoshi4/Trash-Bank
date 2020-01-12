@@ -11,6 +11,8 @@ export const environment = {
   TRANSAC_URL: SERVER_IP + 'transaction',
   ITEMS_URL: SERVER_IP + 'items',
   ADD_URL: SERVER_IP + 'add',
+  CONFIRM_URL: SERVER_IP + 'confirm',
+
 };
 
 /*

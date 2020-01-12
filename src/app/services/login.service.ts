@@ -13,16 +13,11 @@ export class LoginService {
   user: User;
 
   constructor(private http: HttpClient, private utility: UtilityService) {
-    // this.getUserDetails().subscribe(resp => {
-    //   this.user = new User(resp);
-    //   this.utility.hideLoading();
-    //   console.log(this.user);
-    // });
   }
 
   getUserDetails(uname?: string): Observable<any> {
     if (!this.user) {
-      uname = uname ? uname : 'Ankitesh Seller';
+      uname = uname ? uname : 'Anand Buyer';
       const data = {
         uname,
         address: -1

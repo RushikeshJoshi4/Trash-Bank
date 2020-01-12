@@ -16,7 +16,7 @@ export class UtilityService {
   }
 
   hideLoading(delay?: number) {
-    delay = delay ? delay : 500;
+    delay = delay ? delay : 1000;
     // console.log(delay);
     setTimeout(() => {
       $('#loading-modal').modal('hide');
