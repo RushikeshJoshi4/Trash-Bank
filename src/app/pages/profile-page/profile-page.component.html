@@ -5,6 +5,7 @@
   <div id="profile-content">
     <div id="profile-details">
       <div id="dp"></div>
+      <!-- <img src="../../../assets/users/Tesla Corp.jpg" -->
       <div id="details-text">
         <br>
         <div><b>Name:</b> {{currentUser?.name}}</div>
@@ -47,11 +48,11 @@
 
           <div *ngFor="let t of forSaleData; index as i" style="padding: 5px 20px;">
           <div class="card" style="width: 18rem;">
-            <img src="../../../assets/product.jpg" class="card-img-top" alt="...">
+            <img [src]="t.item_path" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{t.item_title}}</h5>
               <p class="card-text">Posted on {{t.date | date: 'dd/MM/yyyy'}}</p>
-              <p class="card-text"><b>Weight:</b> {{t.item_weight}}kg</p>
+              <p class="card-text"><b>Weight:</b> {{t.item_weight}}g</p>
               <p class="card-text"><b>Price:</b> <span style="color: green;">$</span> {{t.item_price}}</p>
               <p class="card-text"><b>Type:</b> {{t.item_type}}</p>
               <a href="#" class="btn btn-danger">Take Off Sale</a>
@@ -90,14 +91,14 @@
           <div *ngFor="let t of transactions; index as i">
             <div *ngIf="t.status=='Awaiting Delivery'" style="padding: 5px 20px;">
             <div class="card" style="width: 18rem;">
-              <img src="../../../assets/product.jpg" class="card-img-top" alt="...">
+              <img [src]="t.item.path" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{t.item.title}}</h5>
                 <p class="card-text">{{t.isSeller?'Sold to':'Bought from'}} <b>{{t.otherParty}}</b> on {{t.datetime | date: 'dd/MM/yyyy'}}</p>
-                <p class="card-text"><b>Weight:</b> {{t.item.weight}}kg</p>
+                <p class="card-text"><b>Weight:</b> {{t.item.weight}}g</p>
                 <p class="card-text"><b>Price:</b> <span style="color: green;">$</span> {{t.item.price}}</p>
                 <p class="card-text"><b>Type:</b> {{t.item.type}}</p>
-                <button type="button" class="btn btn-success" *ngIf="!t.isSeller" (click)="confirmDelivery(t.item.ID, t.ID)">Confirm</button>
+                <button type="button" class="btn btn-success" *ngIf="!t.isSeller" (click)="confirmDelivery(t.item.ID, t.ID)">Confirm Delivery</button>
               </div>
             </div>
           </div>
@@ -138,14 +139,14 @@
           <div *ngFor="let t of transactions; index as i">
             <div *ngIf="t.status=='Complete'" style="padding: 5px 20px;">
             <div class="card" style="width: 18rem;">
-              <img src="../../../assets/product.jpg" class="card-img-top" alt="...">
+              <img [src]="t.item.path" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{t.item.title}}</h5>
                 <p class="card-text">{{t.isSeller?'Sold to':'Bought from'}} <b>{{t.otherParty}}</b> on {{t.datetime | date: 'dd/MM/yyyy'}}</p>
-                <p class="card-text"><b>Weight:</b> {{t.item.weight}}kg</p>
+                <p class="card-text"><b>Weight:</b> {{t.item.weight}}g</p>
                 <p class="card-text"><b>Price:</b> <span style="color: green;">$</span> {{t.item.price}}</p>
                 <p class="card-text"><b>Type:</b> {{t.item.type}}</p>
-                <button type="button" class="btn btn-success" *ngIf="!t.isSeller" (click)="confirmDelivery(t.item.ID, t.ID)">Confirm</button>
+                <!-- <button type="button" class="btn btn-success" *ngIf="!t.isSeller" (click)="confirmDelivery(t.item.ID, t.ID)">Confirm Delivery</button> -->
               </div>
             </div>
             </div>

@@ -6,6 +6,8 @@ import { LoginService } from 'src/app/services/login.service';
 import { UtilityService } from 'src/app/services/utility.service';
 import { TransactionService } from 'src/app/services/transaction.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -29,6 +31,9 @@ export class ProfilePageComponent implements OnInit {
         this.login.user = new User(uresp);
         this.currentUser = this.login.user;
       }
+      const dp: string = 'url("../../../assets/users/' + this.currentUser.name + '.jpg")';
+      console.log(dp);
+      $($('#dp')[0]).css('background-image', dp);
 
       this.transac.getTransactionsOfUser(this.currentUser).subscribe(tresp => {
         console.log('transactions', tresp);

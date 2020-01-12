@@ -25,7 +25,7 @@
 }
 
 #dp {
-    background-image: url("../../../assets/dp.jpg");
+    // background-image: url("../../../assets/users/Erica.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-size: contain;
@@ -54,6 +54,11 @@
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
+}
+
+.card-img-top {
+    height: 160px;
+    object-fit: cover;
 }
 
 #pending-title {

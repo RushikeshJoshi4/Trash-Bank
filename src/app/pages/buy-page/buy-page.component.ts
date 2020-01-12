@@ -42,6 +42,17 @@ export class BuyPageComponent implements OnInit {
     // this.items = ITEMS;
   }
 
+  buyItem(itemID: number) {
+    this.utility.displayLoading('Buying Item');
+    this.itemService.buyItem(this.currentUser, itemID).subscribe(bresp => {
+      console.log('bought', bresp);
+      this.itemService.getItemsForSale(this.currentUser).subscribe(iresp => {
+        this.items = Item.parseTransacArr(iresp.data);
+        this.utility.hideLoading(1000);
+      });
+    });
+  }
+
   getCategoryIcon(type: ItemType) {
     const obj = {
       // 'fa-trash-alt': type === ItemType.TRASH,

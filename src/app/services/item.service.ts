@@ -33,4 +33,13 @@ export class ItemService {
     // }
     return this.http.post(environment.ADD_URL, formData);
   }
+
+  buyItem(user: User, itemID: number) {
+    const obj = {
+      user_id: user.ID,
+      item_id: itemID,
+      address: user.address,
+    };
+    return this.http.post(environment.BUY_URL, obj);
+  }
 }
