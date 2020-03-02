@@ -1,0 +1,57 @@
+#buy-container {
+    height: calc(100% - 75px);
+    display: flex;
+    flex-direction: column;
+}
+
+#filter-bar {
+    height: 10%;
+}
+
+#listings {
+    flex-grow: 1;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#card-container {
+    padding: 5px;
+}
+
+h5.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.card-img-top {
+    height: 160px;
+    object-fit: cover;
+}
+
+// .row {
+//     height: 150px;
+
+//     .listing-image {
+//         overflow: hidden;
+//         height: 100%;
+        
+//         img {
+//             object-fit: cover;
+//         }
+//     }
+
+//     .listing-end {
+//         display: flex;
+//         flex-direction: column;
+//         height: 100%;
+//         justify-content: space-between;
+//         padding: 5px;
+
+//         i {
+//             align-self: flex-end;
+//             font-size: 2rem;
+//         }
+//     }
+// }

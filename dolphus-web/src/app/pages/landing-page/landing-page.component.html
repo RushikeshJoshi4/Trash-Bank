@@ -1,0 +1,79 @@
+<div id="page-container">
+  <div id="landing-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
+    <ol class="carousel-indicators">
+      <li data-target="#landing-carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#landing-carousel" data-slide-to="1"></li>
+      <li data-target="#landing-carousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner h-100">
+      <div class="carousel-item active h-100">
+        <div id="image1" class="slide-div"></div>
+        <!-- <img src="../../../assets/slides/slide1.jpg" height="200" class="d-block w-100" alt="..."> -->
+
+        <div class="carousel-caption d-none d-md-block" style="top: 35%; font-size: 2rem;">
+          <b>START RECYCLING AND SAVE EARTH</b>
+        </div>
+        <div class="carousel-caption d-none d-md-block odometer">0</div>
+        <div class="carousel-caption d-none d-md-block" style="top: 68%;">
+          <p>KGS OF WASTE RECYCLED</p>
+        </div>
+      </div>
+      <div class="carousel-item h-100">
+        <div id="image2" class="slide-div"></div>
+        <!-- <img src="../../../assets/slides/slide2.jpg" class="d-block w-100" alt="..."> -->
+        <div class="carousel-caption d-none d-md-block" style="top: 22%; left: 17%; text-align: left;">
+          <b style="font-size: 2.5rem;">LOOKING TO JOIN AS A COMPANY?</b><br>
+          <button type="button" class="btn btn-success" routerLink="/buy"
+            style="position: absolute;left: 52%;top: 23%;font-size: 1.3rem;">Buy Here</button>
+        </div>
+      </div>
+      <div class="carousel-item h-100">
+        <div id="image3" class="slide-div"></div>
+        <!-- <img src="../../../assets/slides/slide3.jpg" class="d-block w-100" alt="..."> -->
+        <div class="carousel-caption d-none d-md-block" style="top: 22%; left: 17%; text-align: left;">
+          <b style="font-size: 3rem;color: black;">JOIN THE REVOLUTION</b><br>
+          <button type="button" class="btn btn-success" routerLink="/sell"
+            style="position: absolute;left: 42%;top: 26%;font-size: 1.3rem;">Sell Now</button>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#landing-carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#landing-carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div id="call-to-action" class="display-4" style="font-size: 2rem;">
+    “The greatest threat to our planet is the belief that someone else will save it.”
+    <!-- Start your journey! 
+    <button type="button" class="btn btn-primary btn-lg" routerLink="/buy">Buy</button>
+    or
+    <button type="button" class="btn btn-success btn-lg" routerLink="/sell">Sell</button> -->
+  </div>
+</div>
+
+<!--  Username Modal -->
+<div class="modal fade" id="user-modal" tabindex="-1" role="dialog" aria-labelledby="user-modal-label" aria-hidden="true">
+  <div class="modal-dialog model-dialog-centered" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="user-modal-label">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"
+          name="username" [(ngModel)]="username">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="signin()">Sign in</button>
+      </div>
+    </div>
+  </div>
+</div>

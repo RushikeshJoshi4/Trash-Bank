@@ -1,0 +1,32 @@
+<div id="nav-container">
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loading-modal">
+  Launch demo modal
+</button> -->
+  <div id="nav-logo" routerLink='/home' class="clickable">
+    <img src="../../../assets/TrashBank3.png" height="43px">
+  </div>
+  <b class="" style="color: red;">Powered By Ethereum and AI</b>
+  <div id="nav-menu">
+    <!-- <nav class="nav nav-pills">
+      <a class="nav-item nav-link active align-middle" href="#">Home</a>
+      <a class="nav-item nav-link" href="#">Buy</a>
+      <a class="nav-item nav-link" href="#">Sell</a>
+    </nav> -->
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link h-100" [class.active]="activeTab==1" href="#" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link h-100" [class.active]="activeTab==2" href="#" routerLink="/buy">Buy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link h-100" [class.active]="activeTab==3" href="#" routerLink="/sell">Sell</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link h-100" [class.active]="activeTab==4" href="#" routerLink="/profile">Profile</a>
+      </li>
+    </ul>
+  </div>
+  
+</div>

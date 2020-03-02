@@ -1,0 +1,23 @@
+#sell-page-container {
+    height: calc(100% - 75px);
+    padding: 40px 100px;
+}
+
+#sell-boundary {
+    border: 1px solid green;
+    padding: 40px 100px;
+}
+
+#preventor {
+    background: #0000004f;
+    width: 1160px;
+    height: 293px;
+    position: absolute;
+    top: 287px;
+    left: 187px;
+    z-index: 1100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
