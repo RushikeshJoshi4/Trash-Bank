@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 declare var $: any;
 
 @Component({
@@ -9,8 +10,10 @@ declare var $: any;
 export class LandingPageComponent implements OnInit, AfterViewInit {
 
   ego: number;
-  constructor() {
+  username: string;
+  constructor(private login: LoginService) {
     this.ego = 1001;
+    this.username = '';
   }
 
   ngOnInit() {
@@ -26,6 +29,16 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
         $('.odometer')[0].innerText = this.ego;
       }
     }, 5000);
+
+    $('#user-modal').modal('show');
+  }
+
+  signin() {
+    localStorage.setItem('uname', this.username);
+    console.log(this.username, localStorage.getItem('uname'));
+    this.login.getUserDetails(this.username).subscribe(resp => {
+      console.log('landing sign in', resp);
+    });
   }
 
 }

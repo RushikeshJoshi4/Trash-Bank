@@ -31,13 +31,13 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.utility.displayLoading('Loading user data...');
+    // this.utility.displayLoading('Loading user data...');
 
-    this.login.getUserDetails().subscribe(resp => {
-      this.login.user = new User(resp);
-      this.utility.hideLoading();
-      console.log('user', this.login.user);
-    });
+    // this.login.getUserDetails().subscribe(resp => {
+    //   this.login.user = new User(resp);
+    //   this.utility.hideLoading();
+    //   console.log('user', this.login.user);
+    // });
   }
 
 }

@@ -16,6 +16,13 @@ export class LoginService {
   }
 
   getUserDetails(uname?: string): Observable<any> {
+    if (uname) {
+      const data = {
+        uname,
+        address: -1
+      };
+      return this.http.post(environment.LOGIN_URL, data);
+    }
     if (localStorage.getItem('uname')) {
       uname = localStorage.getItem('uname');
     }
