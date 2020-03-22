@@ -14,5 +14,4 @@ Trash bank is a decentralized waste recycling platform. A user can buy or sell r
 - **Machine Learning** - [ML](https://github.com/RushikeshJoshi4/Trash-Bank/tree/master/machine-learning-notebooks)
 
 ## Demo
-[Watch the video here]([https://drive.google.com/file/d/1Og4ERnLKkOMtXhIrgilekl1CLetRrSwl/view](https://drive.google.com/file/d/1Og4ERnLKkOMtXhIrgilekl1CLetRrSwl/view))
-
+[Watch the video here](https://drive.google.com/file/d/1Og4ERnLKkOMtXhIrgilekl1CLetRrSwl/view)
